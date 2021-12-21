@@ -1,3 +1,8 @@
+<?php
+
+include_once "bd/pesquisa.php";
+
+?>
 <html lang="pt-br">
 <head>
 <title>Ideias</title>
@@ -37,7 +42,7 @@
         </div>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> My Account</a></li>
+        <li><a href="login/cadastro_forms.php"><span class="glyphicon glyphicon-user"></span> My Account</a></li>
       </ul>
     </div>
   </div>

@@ -4,11 +4,17 @@
 $banco = new mysqli(host,usuario,senha,banco)
 */
 
+//iniciar a session
+session_start();
+
+//funcões minhas
+include_once "funcoes.php";
 
 $banco = new mysqli("localhost","root","","IDEIAS");
 
 if($banco->connect_errno){
     die();
+    echo "banco de dados MORTO";
 }
 
 /* transformar em portugues*/
