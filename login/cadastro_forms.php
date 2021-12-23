@@ -1,6 +1,7 @@
 <?php
 
 
+include_once $_SERVER['DOCUMENT_ROOT'] . "/IDEIAS/bd/bd.php";
 
 ?>
 <html lang="pt-br">
@@ -8,7 +9,6 @@
 <title>Ideias</title>
 <meta charset="UTF-8">
 <meta name="keywords" content="Ideias, idéias, projetos">
-<meta http-equiv="refresh" content="50">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -16,42 +16,49 @@
 </head>
 <body>
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#">Logo</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Messages</a></li>
-      </ul>
-      <form class="navbar-form navbar-right" role="search">
-        <div class="form-group input-group">
-          <input type="text" class="form-control" placeholder="Search..">
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button">
-              <span class="glyphicon glyphicon-search"></span>
-            </button>
-          </span>        
-        </div>
-      </form>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="login/cadastro_forms.php"><span class="glyphicon glyphicon-user"></span> My Account</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
- 
+<?php
 
-<footer class="container-fluid text-center">
-  <p>Footer Text</p>
-</footer>
+include_once $_SERVER['DOCUMENT_ROOT'] . "/IDEIAS/includes/navbar.html";
+
+?>
+<form action='cadastro.php' method="post">
+<div class="form-group">
+    <label for="nome">Nome</label>
+    <input type="text" class="form-control" id="nome" name='nome'  placeholder="José">
+  </div>
+  <div class="form-group">
+    <label for="sobrenome">Sobrenome</label>
+    <input type="text" class="form-control" id="sobrenome" name='sobrenome'  placeholder="Silva">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" name='email' id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="senha1">Senha</label>
+    <input type="password" name='senha1' class="form-control" id="senha1" placeholder="Senha">
+  </div>
+  <div class="form-group">
+    <label for="senha2">Confirmar senha</label>
+    <input type="password" class="form-control" name='senha2' id="senha2" placeholder="Confirmar Senha">
+  </div>
+  <div class="mb-3">
+  <label for="avatar" class="form-label">Avatar</label>
+  <input class="form-control" name='avatar' type="file" id="avatar">
+</div>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Aceito a vida</label>
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+  
+</form>
+
+<?php
+include_once $_SERVER['DOCUMENT_ROOT'] . "/IDEIAS/includes/footer.html";
+?>
 
 </body>
 </html>

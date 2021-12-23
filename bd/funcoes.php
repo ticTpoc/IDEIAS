@@ -19,4 +19,17 @@ function enigma($senha){
     return $c;
 }
 
+function pesquisarArquivo($caminho){
+
+return include_once $_SERVER['DOCUMENT_ROOT'] . "/IDEIAS/$caminho";
+
+}
+
+//função de pular linha no html pq pelamor
+function p(){
+    echo "<br>";
+}
+
+
+
 ?>
