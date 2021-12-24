@@ -7,6 +7,15 @@ $banco = new mysqli(host,usuario,senha,banco)
 //iniciar a session
 session_start();
 
+// deixar a sessão vazia
+if(!isset($_SESSION['email'])){
+    $_SESSION['email']='';
+    $_SESSION['nome']='';
+    $_SESSION['sobrenome']='';
+
+}
+
+
 //funcões minhas
 include_once "funcoes.php";
 

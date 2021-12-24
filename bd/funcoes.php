@@ -1,5 +1,23 @@
 <?php
 
+
+function logout(){
+  
+    unset($_SESSION['email']);
+    unset($_SESSION['nome']);
+    unset($_SESSION['sobrenome']);
+    
+}
+function logado(){
+    if(empty($_SESSION['email'])){
+
+        return false;
+    }else{
+        return true;
+    }
+
+}
+
 function gerarhash($senha){
 
     $texto= enigma($senha);
@@ -30,6 +48,14 @@ function p(){
     echo "<br>";
 }
 
+
+function msgLogin($logado, $deslogado){
+    if(logado()){
+        echo $logado;
+    }else{
+        echo $deslogado;
+    }
+}
 
 
 ?>

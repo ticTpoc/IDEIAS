@@ -1,7 +1,7 @@
 <?php
 
 
-include_once $_SERVER['DOCUMENT_ROOT'] . "/IDEIAS/bd/bd.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/IDEIAS/bd/pesquisa.php";
 
 ?>
 <html lang="pt-br">
@@ -18,7 +18,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/IDEIAS/bd/bd.php";
 
 <?php
 
-include_once $_SERVER['DOCUMENT_ROOT'] . "/IDEIAS/includes/navbar.html";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/IDEIAS/includes/navbar.php";
 
 ?>
 <form action='cadastro.php' method="post">
@@ -43,22 +43,53 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/IDEIAS/includes/navbar.html";
     <label for="senha2">Confirmar senha</label>
     <input type="password" class="form-control" name='senha2' id="senha2" placeholder="Confirmar Senha">
   </div>
-  <div class="mb-3">
+  <div class="form-group">
   <label for="avatar" class="form-label">Avatar</label>
   <input class="form-control" name='avatar' type="file" id="avatar">
 </div>
   <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <input type="checkbox" name='confirmacao' onclick="checar()" class="form-check-input" id="exampleCheck1">
     <label class="form-check-label" for="exampleCheck1">Aceito a vida</label>
   </div>
-  
-  <button type="submit" class="btn btn-primary">Submit</button>
+
+  <button type="submit" class="btn btn-primary" id='botao' onclick="aviso()" >Submit</button>
   
 </form>
-
+<a href='login_forms.php'><p>já possuo uma Conta</p></a>
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . "/IDEIAS/includes/footer.html";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/IDEIAS/includes/footer.php";
 ?>
+<script type="text/javascript">
+// constantes dos elementos 
+const enviar = document.getElementById('botao');
+const checagem= document.getElementById('exampleCheck1');
 
+//deixar o botão de cadastro desabilitado de começo
+enviar.style.pointerEvents = 'none';
+
+
+function checar(){
+
+    if(checagem.checked==true){
+      // deixar o botão clicavél de a caixa de checagem estiver selecionada
+    enviar.style.pointerEvents = 'auto';
+    }else{
+    enviar.style.pointerEvents = 'none';
+    }
+}
+
+//projetinho aqui deixo pra depois
+/*
+function aviso(){
+  if(checagem.checked==false){
+    //criar um aviso caso o usuário tente apertar o botão 
+    ideia = document.createElement('small');
+
+  }
+}
+*/
+
+
+</script>
 </body>
 </html>

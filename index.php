@@ -1,6 +1,13 @@
 <?php
 
 include_once "bd/pesquisa.php";
+$email = $_SESSION['email'] ?? null;
+$q="select nome,senha,avatar,email,sobrenome from usuarios where email='$email'";
+$busca = $banco->query($q);
+$reg = $busca->fetch_object();
+
+
+
 
 ?>
 <html lang="pt-br">
@@ -16,14 +23,14 @@ include_once "bd/pesquisa.php";
 </head>
 <body>
 
-<?php include_once "includes/navbar.html"; ?>
+<?php include_once "includes/navbar.php"; ?>
   
 <div class="container text-center">    
   <div class="row">
     <div class="col-sm-3 well">
       <div class="well">
-        <p><a href="#">My Profile</a></p>
-        <img src="bird.jpg" class="img-circle" height="65" width="65" alt="Avatar">
+        <p><?php if(logado()){echo "<a href='perfil.php'>".$reg->nome."";}else{ echo "<a href='login/cadastro_forms.php'>Cadastro"; } ?></a></p>
+        <img <?php if(logado()){echo "src='img/perfil/$reg->avatar'";}else{ echo "<a src='img/perfil/null.jpeg'"; }?> class="img-circle" height="65" width="65" alt="Avatar">
       </div>
       <div class="well">
         <p><a href="#">Interests</a></p>
@@ -131,7 +138,7 @@ include_once "bd/pesquisa.php";
   </div>
 </div>
 
-<?php include_once "includes/footer.html" ?>
+<?php include_once "includes/footer.php" ?>
 
 </body>
 </html>
