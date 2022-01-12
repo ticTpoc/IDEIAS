@@ -19,4 +19,6 @@ while($reg = $busca->fetch_object()){
 
 
 
+
+
 ?>

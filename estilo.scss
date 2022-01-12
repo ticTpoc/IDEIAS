@@ -1,0 +1,44 @@
+//variaveis
+$primaria: #2C363F;
+$secundaria: #E75A7C;
+$terciaria: #F2F5EA;
+$extra: #BBC7A4;
+
+//funções
+@mixin relativo {
+    position: relative;
+    width: 100%;
+
+}
+
+// importantes
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background-color: rgb(138, 138, 138);
+}
+
+// 3 bases
+.header {
+    @include relativo;
+    height: 10%;
+    background-color: $primaria;
+}
+
+.body {
+    @include relativo;
+    height: 80%;
+    background-color: $secundaria;
+    p {
+        color: $primaria;
+    }
+}
+
+.footer {
+    background-color: $terciaria;
+    height: 10%;
+    @include relativo;
+}

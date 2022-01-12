@@ -13,6 +13,7 @@ AVATAR VARCHAR(45) NOT NULL
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
+
 CREATE TABLE PUBLICACOES(
 ID INT NOT NULL PRIMARY KEY auto_increment,
 TEXTO TEXT NOT NULL,
@@ -22,14 +23,14 @@ foreign key(USUARIO) references USUARIOS(EMAIL)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 insert into usuarios(nome,sobrenome,avatar,senha,email) values
-('William','Carneiro','perfil.png','123','william_190_@hotmail.com'); 
+('William','Carneiro','perfil.png','$2y$10$I.fqxfO5tph.IMWRFysozevKt64..QUS.1rYL9VKQveIJAI9DFgpW','william_190_@hotmail.com'); 
 
 
 insert into publicacoes(texto,usuario) values 
 ('GuzeraGod','william_190_@hotmail.com');
 
 /* selecionar usuarios e suas publicações*/
-select usuarios.nome, publicacoes.texto from publicacoes join usuarios on publicacoes.usuario=usuarios.id;
+select usuarios.nome, publicacoes.texto from publicacoes join usuarios on publicacoes.usuario=usuarios.email;
 
 /* selecionar todos os usuários */
 select * from usuarios;

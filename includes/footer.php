@@ -1,3 +1,3 @@
-<footer class="container-fluid text-center">
-    <p>Footer Text</p>
-  </footer>
+<div class="footer">
+    <p> footer </p>
+</div>
