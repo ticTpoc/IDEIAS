@@ -5,11 +5,15 @@ $terciaria: #F2F5EA;
 $extra: #BBC7A4;
 
 //funções
-@mixin relativo {
+@mixin relativo($width, $height) {
     position: relative;
-    width: 100%;
-
+    width: $width;
+    text-align: center;
+    height:$height;
+    float:left;  
 }
+
+
 
 // importantes
 * {
@@ -23,22 +27,92 @@ html {
 
 // 3 bases
 .header {
-    @include relativo;
-    height: 10%;
+    @include relativo(100%,150px);
+   
     background-color: $primaria;
 }
 
 .body {
-    @include relativo;
-    height: 80%;
-    background-color: $secundaria;
+    @include relativo(100%,auto);
+ 
     p {
         color: $primaria;
     }
 }
 
 .footer {
-    background-color: $terciaria;
-    height: 10%;
-    @include relativo;
+    background-color: $secundaria;
+    margin-bottom: 0;
+    @include relativo(100%,100px);
+}
+
+//divisões
+
+.esquerda{
+    background-color: $secundaria;
+    @include relativo(33.333%,100%);
+}
+.meio{
+    background-color: $extra;
+    @include relativo(33.333%,100%);
+}
+.direita{
+    background-color: white;
+    @include relativo(33.333%,100%);
+}
+/*.navleft{
+    @include relativo(10%,100%);
+    background-color: rgb(252, 224, 224);
+   
+}*/
+.navegation{
+    @include relativo(100%,100%);
+    background-color: rgb(78, 41, 41);
+}
+.extra{
+    @include relativo(100%,100%);
+    background-color: rgb(68, 5, 5);
+    overflow:auto;
+}
+/*.content{
+    @include relativo(90%,auto);
+    background-color: rgb(103, 138, 243);
+   
+    //overflow-y: hidden;
+}*/
+.metade{
+
+    @include relativo(40%, 200px);
+   
+    background-color: brown;
+    margin: 10px 0px 30px 80px;
+   
+}
+
+//tabelas
+table{
+    border-collapse: collapse;
+    margin:auto;
+}
+td.publicacoes{
+    border: 2px solid black;
+    border-spacing: 0;
+    background-color: white;
+    width: 200px;
+}
+
+table.publicacoes{
+    width:100%;
+    height:100%;
+}
+td.content{
+   width: 90%;
+   height:100%;
+  background-color: rgb(151, 190, 111);
+}
+td.navleft{
+    width:10%;
+    height:100%;
+    background-color: cadetblue;
+   
 }

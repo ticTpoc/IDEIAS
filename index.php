@@ -15,7 +15,24 @@
 <body>    
 <?php include_once "includes/navbar.php" ?>
 <div class="body">
-<p> Index </p>
+<table class="publicacoes">
+    <tr>
+    <td class="navleft">
+
+    </td>
+    <td class="content">
+    <div class="metade"></div>
+    <div class="metade"></div>
+    <div class="metade"></div>
+    <div class="metade"></div>
+    <div class="metade"></div>
+    <div class="metade"></div>
+    <div class="metade"></div>
+    <div class="metade"></div>
+    <div class="metade"></div>
+    </td>
+    </tr>
+</table>
 </div>
 <?php include_once "includes/footer.php"?>
 </body>
