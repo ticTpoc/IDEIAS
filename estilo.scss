@@ -60,26 +60,6 @@ html {
     background-color: white;
     @include relativo(33.333%,100%);
 }
-/*.navleft{
-    @include relativo(10%,100%);
-    background-color: rgb(252, 224, 224);
-   
-}*/
-.navegation{
-    @include relativo(100%,100%);
-    background-color: rgb(78, 41, 41);
-}
-.extra{
-    @include relativo(100%,100%);
-    background-color: rgb(68, 5, 5);
-    overflow:auto;
-}
-/*.content{
-    @include relativo(90%,auto);
-    background-color: rgb(103, 138, 243);
-   
-    //overflow-y: hidden;
-}*/
 .metade{
 
     @include relativo(40%, 200px);

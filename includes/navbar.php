@@ -1,13 +1,13 @@
-
+<?php include_once $_SERVER['DOCUMENT_ROOT'] . "/IDEIAS/bd/pesquisa.php";?>
 <div class='header'>
 <div class="esquerda">
 <p>esquerda</p>
 </div>
 <div class="meio">
-<p>meio</p>
+<p><a href='/IDEIAS'>Logo</a></p>
 </div>
 <div class="direita">
-<p>direita</p>
+<p><a href='login/cadastro.php'>CADASTRO</a></p>
 </div>
 
 </div>

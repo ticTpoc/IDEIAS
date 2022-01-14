@@ -64,36 +64,6 @@ html {
   float: left;
 }
 
-/*.navleft{
-    @include relativo(10%,100%);
-    background-color: rgb(252, 224, 224);
-
-}*/
-.navegation {
-  position: relative;
-  width: 100%;
-  text-align: center;
-  height: 100%;
-  float: left;
-  background-color: #4e2929;
-}
-
-.extra {
-  position: relative;
-  width: 100%;
-  text-align: center;
-  height: 100%;
-  float: left;
-  background-color: #440505;
-  overflow: auto;
-}
-
-/*.content{
-    @include relativo(90%,auto);
-    background-color: rgb(103, 138, 243);
-
-    //overflow-y: hidden;
-}*/
 .metade {
   position: relative;
   width: 40%;

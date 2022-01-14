@@ -1,5 +1,5 @@
 
-<?php include_once "bd/pesquisa.php"; ?>
+<?php include_once $_SERVER['DOCUMENT_ROOT'] . "/IDEIAS/bd/pesquisa.php";?>
 <html lang="pt-br">
 <head>
 
@@ -21,15 +21,22 @@
 
     </td>
     <td class="content">
-    <div class="metade"></div>
-    <div class="metade"></div>
-    <div class="metade"></div>
-    <div class="metade"></div>
-    <div class="metade"></div>
-    <div class="metade"></div>
-    <div class="metade"></div>
-    <div class="metade"></div>
-    <div class="metade"></div>
+    <?php 
+    
+
+    $q = "select usuario,titulo,texto,assunto,dia from publicacoes";
+    $busca = $banco->query($q);
+    while ($reg=$busca->fetch_object()){
+        echo "<div class='metade'>";
+        echo "<table class='publicacoes'>
+        <tr><td class='publicacao'>$reg->usuario <td class='publicacao'>$reg->titulo
+        <tr><td class='publicacao' colspan='2'>$reg->texto
+        <tr><td class='publicacao'>$reg->assunto<td class='publicacao'>$reg->dia";
+        echo "</table>";
+        echo "</div>";
+    }
+    ?>
+  
     </td>
     </tr>
 </table>
