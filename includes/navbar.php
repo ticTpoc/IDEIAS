@@ -7,7 +7,7 @@
 <p><a href='/IDEIAS'>Logo</a></p>
 </div>
 <div class="direita">
-<p><a href='login/cadastro.php'>CADASTRO</a></p>
+<p><a href='login/cadastro_forms.php'>CADASTRO</a></p>
 </div>
 
 </div>

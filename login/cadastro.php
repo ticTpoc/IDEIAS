@@ -1,44 +1,49 @@
+<?php
 
-<?php include_once $_SERVER['DOCUMENT_ROOT'] . "/IDEIAS/bd/pesquisa.php";?>
-<html lang="pt-br">
-<head>
+include_once $_SERVER['DOCUMENT_ROOT'] . "/IDEIAS/bd/pesquisa.php";
 
-<title>Perguntas do Quiz</title>
-<meta charset="UTF-8">
-<meta name="keywords" content="Ideias, idéias, projetos">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="../dist/estilo.css">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<script src="../dist/funcoes.js"></script>
+ echo $nome= $_POST['nome'];
+ p();
+echo $sobrenome= $_POST['sobrenome'];
+p();
+echo $senha1= $_POST['senha1'];
+p();
+ echo $senha2= $_POST['senha2'];
+ p();
+ echo $email= $_POST['email'];
+ p();
+echo $avatar= $_POST['avatar'];
+p();
 
-</head>
 
-<body>    
-<?php include_once $_SERVER['DOCUMENT_ROOT'] . "/IDEIAS/includes/navbar.php";?>
-<div class="body">
-<table class="publicacoes">
-    <tr>
-  
-    <td class="content">
- <form>
-     <label for='nome'>Nome</label>
-     <input type='text' name='nome' id='nome'>
-     <label for='sobrenome'>Sobrenome</label>
-     <input type='text' name='sobrenome' id='sobrenome'><br><br><br>
-     <label for='senha'>Senha</label>
-     <input type='text' name='senha' id='senha'>
-     <label for='senha2'>Confirmar Senha</label>
-     <input type='text' name='senha2' id='senha2'><br><br>
-     <label for='perfil'> Foto de Perfil</label>
-     <input onchange='mostrarImagem()' type='file' name='perfil' id='perfil'>
-<div id='mostrador'>
-</div>
- </form>
-    </td>
-    </tr>
-</table>
-</div>
-<?php include_once $_SERVER['DOCUMENT_ROOT'] . "/IDEIAS/includes/footer.php";?>
-</body>
+//checagem se da confirmação de senha
+if($senha1 !== $senha2){
+    //mensagem de erro
+    //trocar por uma função no futuro
+echo "Deu coisa errada ai amigo";
+}else{
+    //colocar um if pra checar a extensão de arquivo do avatar
+ // guardar em uma variável a extensão de um arquivo que esteja na pasta IDEIAS/img
+ echo $parseAvatar= str_replace("<br>", "",pathinfo($_SERVER['DOCUMENT_ROOT'] . "/IDEIAS/img/$avatar",PATHINFO_EXTENSION));
 
-</html>
+p();
+
+    if(($parseAvatar=='png')||($parseAvatar=='jpg')||($parseAvatar=='jpeg')){
+
+        $hash = gerarhash($senha2);
+        $q = "INSERT INTO USUARIOS(NOME,SOBRENOME,SENHA,EMAIL,AVATAR) VALUES
+        ('$nome','$sobrenome','$hash','$email','$avatar');";
+
+        $banco->query($q);
+
+
+    }else{
+        echo "tipo de imagem não suportado ";
+    }
+
+}
+
+?>
+<script type="text/javascript">
+     window.location.href="../index.php";
+    </script>

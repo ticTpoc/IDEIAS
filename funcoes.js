@@ -1,4 +1,5 @@
 function mostrarImagem() {
+    
     var imgatual = document.getElementById('imgatual');
     if (imgatual == null) {
     }
@@ -15,4 +16,23 @@ function mostrarImagem() {
     novaImagem.setAttribute('id', 'imgatual');
     mostrador.appendChild(novaImagem);
     console.log(cortado);
+}
+function testarEnvio() {
+    const cb = document.querySelector('#TC');
+    const formulario = document.querySelector('#formulario');
+    let senha = document.querySelector('#senha').value;
+    console.log(senha);
+    let senha2 = document.querySelector('#senha2').value;
+    console.log(senha2);
+
+    if((cb.checked)&&(senha===senha2)&&(senha!=="")){
+     formulario.setAttribute('action','cadastro.php');
+    }
+
+}
+function clique() {
+   
+}
+function testar(){
+    
 }
