@@ -18,4 +18,6 @@ $busca = $banco->query($q);
 $reg = $busca->fetch_object()
 */
 
+
+
 ?>

@@ -30,9 +30,3 @@ function testarEnvio() {
     }
 
 }
-function clique() {
-   
-}
-function testar(){
-    
-}

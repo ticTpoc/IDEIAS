@@ -31,7 +31,3 @@ function testarEnvio() {
     formulario.setAttribute('action', 'cadastro.php');
   }
 }
-
-function clique() {}
-
-function testar() {}

@@ -1,6 +1,6 @@
 <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/IDEIAS/bd/pesquisa.php";
 $email = $_SESSION['email'];
-$q= "select avatar from usuarios where email='$email'";
+$q= "select avatar,nome,sobrenome from usuarios where email='$email'";
 $busca = $banco->query($q);
 $reg= $busca->fetch_object();
 ?>
@@ -10,9 +10,11 @@ $reg= $busca->fetch_object();
    <?php 
     if(logado()){
 
-        echo "<br><img width='100px' height='100px'src='/IDEIAS/img/perfil/$reg->avatar'>";
+        echo "<br><span>$reg->nome</span>
+        <img id='perfil' width='100px' height='100px'src='/IDEIAS/img/perfil/$reg->avatar'>
+        <span>$reg->sobrenome</span>";
     }else{
-    echo "<p>esquerda</p>";
+  
     
     }
    ?>

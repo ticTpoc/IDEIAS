@@ -1,5 +1,11 @@
 
-<?php include_once $_SERVER['DOCUMENT_ROOT'] . "/IDEIAS/bd/pesquisa.php";?>
+<?php include_once $_SERVER['DOCUMENT_ROOT'] . "/IDEIAS/bd/pesquisa.php";
+
+$usuario = $_SESSION['email'] ?? null;
+$key = $_GET['key'] ?? null;
+
+
+?>
 <html lang="pt-br">
 <head>
 
@@ -7,12 +13,25 @@
 <meta charset="UTF-8">
 <meta name="keywords" content="Ideias, idéias, projetos">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="dist/estilo.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="dist/estilo.css">
 
+<script src="/IDEIAS/dist/funcoes.dev.js"></script>
+<style>
+    #titulinho{
+        text-align: center;
+    }
+    #reset{
+        margin-bottom: 40px;
+    }
+   
+  
+   
+    </style>
 </head>
 
-<body>    
+<body>
+
 <?php include_once "includes/navbar.php" ?>
 <div class="body">
 <table class="publicacoes">
@@ -22,27 +41,47 @@
 
 $q = "select distinct assunto from publicacoes limit 5";
 $busca = $banco->query($q);
-echo "<ul id='listaleft'>";
+echo "<table class='lista'><tr><td class='lista'><a  href='/IDEIAS/index.php?key=' >Reset</a></td></tr>";
+
 while ($reg=$busca->fetch_object()){
     echo "
-    <li>$reg->assunto</li>
+    <tr><td class='lista'><a href='/IDEIAS/index.php?key=$reg->assunto'>$reg->assunto</a></td>
     ";
 }
-echo "</ul>";
+echo "</table>";
 ?>
     </td>
     <td class="content">
     <?php 
-    
+      $q = "select p.id, p.likes,p.usuario,p.titulo,p.texto,p.assunto,p.dia,u.avatar from publicacoes as p join usuarios as u on p.usuario=u.email";
+    if(!empty($key)){
+        $q .= " where p.assunto like '%$key%'";
+    }else{
+    }
 
-    $q = "select p.usuario,p.titulo,p.texto,p.assunto,p.dia,u.avatar from publicacoes as p join usuarios as u on p.usuario=u.email";
     $busca = $banco->query($q);
     while ($reg=$busca->fetch_object()){
         echo "<div class='metade'>";
-        echo "<table class='publicacoes'>
-        <tr><td class='publicacao'><img width='50px' height='50px' src='/IDEIAS/img/perfil/$reg->avatar'> <td class='publicacao'>$reg->titulo
-        <tr><td class='publicacao' colspan='2'>$reg->texto
-        <tr><td class='publicacao'>$reg->assunto<td class='publicacao'>$reg->dia";
+        echo "<table class='publicacao'>
+        <tr><td class='publicacao' id='titulinho' colspan='3'><img id='perfil' width='50px' height='50px' src='/IDEIAS/img/perfil/$reg->avatar'> $reg->titulo
+        <tr><td class='publicacao' colspan='3'>$reg->texto
+        <tr><td class='publicacao'>$reg->assunto<td class='publicacao'>$reg->dia<td class='publicacao'>";
+
+        $k = "select usuario, publicacao from likes where likes.usuario='$usuario' and likes.publicacao='$reg->id'";
+        $busca2 = $banco->query($k);
+
+        if(logado()){
+            if ($busca2->num_rows==1){
+                echo "<a id='likeado' href='/IDEIAS/index.php'><span id='likeado' class='material-icons'>thumb_up</span></a>";
+
+            }else{
+                echo "<a  href='/IDEIAS/index.php'><span id='like' class='material-icons' onclick=\"like('$reg->id')\" >thumb_up</span></a>";
+            }
+        }else{
+            
+        }
+      
+    
         echo "</table>";
         echo "</div>";
     }
@@ -54,8 +93,25 @@ echo "</ul>";
 </div>
 <?php include_once "includes/footer.php"?>
 <?php
-if(logado()){echo "<a href='/IDEIAS/forms/publicar_forms.php'><img width='50px' height='50px' src='/IDEIAS/img/icones/mais.png' id='icon'></a>";}
+if(logado()){echo "<a href='/IDEIAS/forms/publicar_forms.php'><img  src='/IDEIAS/img/icones/mais.png' id='icon'></a>";}
  ?>
 </body>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type='text/javascript'>
+    function like(pub){
+        var publicacao= new FormData();
+    publicacao.append('publicacao',pub);
+   $.ajax({
+           url:'/IDEIAS/scripts/like.php',
+           method: 'post',
+           data: publicacao,
+           processData: false,
+           contentType:false,
+           success: function(resposta){
+
+           }
+   });
+  }
+    </script>
 
 </html>

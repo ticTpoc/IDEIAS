@@ -11,13 +11,21 @@ textarea {
   resize: none;
 }
 
+td {
+  margin-left: 9px;
+}
+
+p {
+  margin-left: 9px;
+}
+
 .header {
   position: relative;
   width: 100%;
   text-align: center;
   height: 150px;
   float: left;
-  background-color: #2C363F;
+  background-color: #E75A7C;
 }
 
 .body {
@@ -26,13 +34,14 @@ textarea {
   text-align: center;
   height: auto;
   float: left;
+  background-color: #F2F5EA;
 }
 .body p {
   color: #2C363F;
 }
 
 .footer {
-  background-color: #E75A7C;
+  background-color: #BBC7A4;
   margin-bottom: 0;
   position: relative;
   width: 100%;
@@ -42,7 +51,6 @@ textarea {
 }
 
 .esquerda {
-  background-color: #E75A7C;
   position: relative;
   width: 33.333%;
   text-align: center;
@@ -51,7 +59,6 @@ textarea {
 }
 
 .meio {
-  background-color: #BBC7A4;
   position: relative;
   width: 33.333%;
   text-align: center;
@@ -60,7 +67,6 @@ textarea {
 }
 
 .direita {
-  background-color: white;
   position: relative;
   width: 33.333%;
   text-align: center;
@@ -74,7 +80,6 @@ textarea {
   text-align: center;
   height: 200px;
   float: left;
-  background-color: brown;
   margin: 10px 0px 30px 80px;
 }
 
@@ -90,9 +95,7 @@ table {
 }
 
 td.publicacoes {
-  border: 2px solid black;
   border-spacing: 0;
-  background-color: white;
   width: 200px;
 }
 
@@ -104,17 +107,53 @@ table.publicacoes {
 td.content {
   width: 100%;
   height: 100%;
-  background-color: #97be6f;
 }
 
 td.navleft {
   width: 10%;
   height: 100%;
-  background-color: cadetblue;
+  padding-top: 50px;
+  vertical-align: top;
+  border-right: 3px solid black;
+}
+
+td.lista {
+  font-size: 20px;
+  line-height: 45px;
+}
+
+table.publicacao {
+  background-color: #2C363F;
+  color: #F2F5EA;
+  height: 220px;
+}
+
+td.publicacao {
+  font-size: 20px;
+  padding-left: 10px;
 }
 
 #icon {
   position: fixed;
   right: 5;
   bottom: 5;
+  width: 100px;
+  height: 100px;
+}
+
+#perfil {
+  border-radius: 50%;
+}
+
+#like {
+  color: #F2F5EA;
+}
+
+#like:hover {
+  color: #E75A7C;
+}
+
+#likeado {
+  color: #BBC7A4;
+  pointer-events: none;
 }

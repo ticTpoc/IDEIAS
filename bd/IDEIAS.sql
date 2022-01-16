@@ -26,16 +26,27 @@ ASSUNTO VARCHAR(20) NOT NULL,
 foreign key(USUARIO) references USUARIOS(EMAIL)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE LIKES(
+USUARIO VARCHAR(125) NOT NULL,
+PUBLICACAO INT NOT NULL,
+
+foreign key(USUARIO) references USUARIOS(EMAIL),
+foreign key(PUBLICACAO) references PUBLICACOES(ID)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 insert into usuarios(nome,sobrenome,avatar,senha,email) values
 ('William','Carneiro','perfil.png','$2y$10$I.fqxfO5tph.IMWRFysozevKt64..QUS.1rYL9VKQveIJAI9DFgpW','william_190_@hotmail.com'); 
 
 
-/*insert into publicacoes(texto,usuario, dia, likes, titulo, assunto) values 
+/* selecionar usuarios e suas publicações
+select usuarios.nome,publicacoes.dia, publicacoes.titulo, publicacoes.texto from publicacoes join usuarios on publicacoes.usuario=usuarios.email;
 */
 
-/* selecionar usuarios e suas publicações*/
-select usuarios.nome,publicacoes.dia, publicacoes.titulo, publicacoes.texto from publicacoes join usuarios on publicacoes.usuario=usuarios.email;
 
-/* selecionar todos os usuários */
+/* selecionar tudo
 select * from usuarios;
 select * from publicacoes;
+select * from likes;
+
+select usuario, publicacao from likes where likes.usuario='william_190_@hotmail.com' and likes.publicacao='1';
+*/
