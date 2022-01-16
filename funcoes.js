@@ -10,7 +10,7 @@ function mostrarImagem() {
     var mostrador = document.getElementById('mostrador');
     var cortado = imagem.slice(12);
     var novaImagem = document.createElement("img");
-    novaImagem.setAttribute('src', '../img/' + cortado);
+    novaImagem.setAttribute('src', '../img/perfil/' + cortado);
     novaImagem.setAttribute('height', '100px');
     novaImagem.setAttribute('width', '100px');
     novaImagem.setAttribute('id', 'imgatual');

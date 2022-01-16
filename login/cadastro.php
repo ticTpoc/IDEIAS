@@ -33,8 +33,9 @@ p();
         $hash = gerarhash($senha2);
         $q = "INSERT INTO USUARIOS(NOME,SOBRENOME,SENHA,EMAIL,AVATAR) VALUES
         ('$nome','$sobrenome','$hash','$email','$avatar');";
-
         $banco->query($q);
+
+        
 
 
     }else{

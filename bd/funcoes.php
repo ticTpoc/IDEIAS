@@ -8,6 +8,7 @@ function logout(){
     unset($_SESSION['sobrenome']);
     
 }
+
 function logado(){
     if(empty($_SESSION['email'])){
 

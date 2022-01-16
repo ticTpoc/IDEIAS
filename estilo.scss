@@ -12,10 +12,15 @@ $extra: #BBC7A4;
     height:$height;
     float:left;  
 }
+@mixin fixed($top,$right,$bottom,$left){
+    position: fixed;
+    top:$top;
+    right:$right;
+    bottom:$bottom;
+    left:$left;
+}
 
-
-
-// importantes
+// gerais
 * {
     margin: 0;
     padding: 0;
@@ -24,6 +29,11 @@ $extra: #BBC7A4;
 html {
     background-color: rgb(138, 138, 138);
 }
+
+textarea {
+    resize: none;
+}
+
 
 // 3 bases
 .header {
@@ -101,4 +111,10 @@ td.navleft{
     height:100%;
     background-color: cadetblue;
    
+}
+
+// especificos
+#icon{
+    @include fixed(null,5,5,null );
+
 }
