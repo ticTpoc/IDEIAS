@@ -1,7 +1,9 @@
 //variaveis
 $primaria: #2C363F;
+$primariaE: #21282e;
 $secundaria: #E75A7C;
 $terciaria: #F2F5EA;
+$terciariaE: #c0c2ba;
 $extra: #BBC7A4;
 
 //funções
@@ -19,6 +21,7 @@ $extra: #BBC7A4;
     bottom:$bottom;
     left:$left;
 }
+
 
 // gerais
 * {
@@ -84,6 +87,19 @@ p{
     margin: 10px 0px 30px 80px;
    
 }
+.botao{
+    border:none;
+    padding: 10px;
+    font-size: 18px;
+    background-color: $primaria;
+    color:$terciaria;
+    border-radius: 15%;
+}
+.botao:hover{
+    background-color: $primariaE;
+    color:$terciariaE;
+}
+
 //formulários
 .formulario{
     width: 60%;
@@ -128,6 +144,7 @@ td.lista{
     line-height: 45px;
 }
 table.publicacao{
+    width:100%;
     background-color: $primaria;
     color:$terciaria;
     height: 220px;
@@ -145,16 +162,25 @@ td.publicacao{
     width:100px;
     height:100px;
 }
-#perfil{
-    border-radius: 50%;
-}
+
 #like{
     color:$terciaria;
 }
 #like:hover{
     color:$secundaria;
 }
+#avatar{
+    border-radius: 50%;
+}
 #likeado{
     color:$extra;
     pointer-events: none;
+}
+#likes{
+    pointer-events: none;
+    font-size:25px;
+}
+#icone{
+    width:80px;
+    height:80px;
 }

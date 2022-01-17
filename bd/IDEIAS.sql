@@ -28,7 +28,9 @@ foreign key(USUARIO) references USUARIOS(EMAIL)
 
 CREATE TABLE LIKES(
 USUARIO VARCHAR(125) NOT NULL,
+QUANTIDADE INT NOT NULL,
 PUBLICACAO INT NOT NULL,
+
 
 foreign key(USUARIO) references USUARIOS(EMAIL),
 foreign key(PUBLICACAO) references PUBLICACOES(ID)
@@ -37,6 +39,14 @@ foreign key(PUBLICACAO) references PUBLICACOES(ID)
 insert into usuarios(nome,sobrenome,avatar,senha,email) values
 ('William','Carneiro','perfil.png','$2y$10$I.fqxfO5tph.IMWRFysozevKt64..QUS.1rYL9VKQveIJAI9DFgpW','william_190_@hotmail.com'); 
 
+SELECT COUNT(publicacao) as contagem FROM likes where publicacao='1';
+
+
+select count(l.publicacao) as contagem, p.texto, u.email from likes as l join publicacoes as p on p.id=l.publicacao join usuarios as u on u.email=l.usuario group by l.publicacao order by contagem desc;
+
+select count(l.publicacao) as contagem,p.id, p.likes,p.usuario,p.titulo,p.texto,p.assunto,p.dia,u.avatar,u.email 
+      from likes as l join publicacoes as p on p.id=l.publicacao join usuarios as u on l.usuario=u.email where p.assunto like '%a%'
+      group by l.publicacao order by contagem  desc;
 
 /* selecionar usuarios e suas publicações
 select usuarios.nome,publicacoes.dia, publicacoes.titulo, publicacoes.texto from publicacoes join usuarios on publicacoes.usuario=usuarios.email;

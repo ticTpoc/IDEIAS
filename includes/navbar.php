@@ -11,7 +11,7 @@ $reg= $busca->fetch_object();
     if(logado()){
 
         echo "<br><span>$reg->nome</span>
-        <img id='perfil' width='100px' height='100px'src='/IDEIAS/img/perfil/$reg->avatar'>
+        <img id='avatar' width='100px' height='100px'src='/IDEIAS/img/perfil/$reg->avatar'>
         <span>$reg->sobrenome</span>";
     }else{
   
@@ -21,15 +21,21 @@ $reg= $busca->fetch_object();
 
 </div>
 <div class="meio">
-<br><br><br><p><a href='/IDEIAS'>Logo</a></p>
+<br><p><a href='/IDEIAS'><img id= 'avatar'width='100px' height='100px' src='/IDEIAS/img/icones/logo.png'></a></p>
 </div>
 <div class="direita">
 <?php
 if(logado()){
-    echo "<br><br><br><p><a href='login/logout.php'>LOGOUT</a></p>";
+    echo "<br><br><br><p><a href='login/logout.php'><button class='botao'>
+    Logout
+    </button></a></p>";
 }else{
-    echo "<br><p><a href='/IDEIAS/login/cadastro_forms.php'>CADASTRO</a></p><br><br>";
-    echo "<p><a href='/IDEIAS/login/login_forms.php'>LOGIN</a></p>";
+    echo "<br><p><a href='/IDEIAS/login/cadastro_forms.php'>
+    <button class='botao'> Cadastro </button></a></p><br><br>";
+    echo "<p><a  id='icone' href='/IDEIAS/login/login_forms.php'>
+    <button class='botao'>
+    Login
+    </button></a></p>";
 }
 
 ?>

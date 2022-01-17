@@ -83,6 +83,20 @@ p {
   margin: 10px 0px 30px 80px;
 }
 
+.botao {
+  border: none;
+  padding: 10px;
+  font-size: 18px;
+  background-color: #2C363F;
+  color: #F2F5EA;
+  border-radius: 15%;
+}
+
+.botao:hover {
+  background-color: #21282e;
+  color: #c0c2ba;
+}
+
 .formulario {
   width: 60%;
   text-align: center;
@@ -123,6 +137,7 @@ td.lista {
 }
 
 table.publicacao {
+  width: 100%;
   background-color: #2C363F;
   color: #F2F5EA;
   height: 220px;
@@ -141,10 +156,6 @@ td.publicacao {
   height: 100px;
 }
 
-#perfil {
-  border-radius: 50%;
-}
-
 #like {
   color: #F2F5EA;
 }
@@ -153,7 +164,21 @@ td.publicacao {
   color: #E75A7C;
 }
 
+#avatar {
+  border-radius: 50%;
+}
+
 #likeado {
   color: #BBC7A4;
   pointer-events: none;
+}
+
+#likes {
+  pointer-events: none;
+  font-size: 25px;
+}
+
+#icone {
+  width: 80px;
+  height: 80px;
 }

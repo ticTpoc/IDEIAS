@@ -8,6 +8,7 @@ function mostrarImagem() {
   }
 
   var imagem = document.getElementById('perfil').value;
+  console.log(imagem);
   var mostrador = document.getElementById('mostrador');
   var cortado = imagem.slice(12);
   var novaImagem = document.createElement("img");
