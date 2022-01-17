@@ -27,7 +27,7 @@
            <input type='email' name='email' id='email'><br><br>
            <label for='senha'>Senha</label>
            <input type='password' name='senha1' id='senha'><br><br><br>
-           <button> Login </button>
+           <button class='botao'> Login </button>
  </form>
  </div>
     </td>

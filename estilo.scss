@@ -109,14 +109,18 @@ p{
 label{
     font-size:30px;
 }
+#labelcomentario{
+    top:0px;
+}
 input[type=text],input[type=password],input[type=email]{
+    text-align: center;
     background-color: $extra;
     color:$primariaE;
     padding: 0px 10px 0px 10px;
     border:none;
     font-size:20px;
     height:40px;
-    border-radius: 10%;
+
 }
 input[type=text]:focus,input[type=password]:focus,input[type=email]:focus{
     background-color: $terciaria;
@@ -134,7 +138,18 @@ input[type=checkbox]{
     height:20px;
 }
 input[type=file]{
-    background-color: blue;
+    
+}
+textarea{
+    background-color: $extra;
+    border: none;
+    
+}
+textarea:focus{
+    outline: none;
+    background-color: $terciaria;
+    border: 3px solid #555;
+    
 }
 
 //tabelas
@@ -158,12 +173,14 @@ table.publicacoes{
 td.content{
    width: 100%;
    height:100%;
+   text-align: center;
  // background-color: rgb(151, 190, 111);
 }
 td.navleft{
     width:10%;
     height:100%;
     //background-color: cadetblue;
+    text-align: center;
    padding-top: 50px;
     vertical-align: top;
     border-right: 3px solid black;
@@ -213,4 +230,25 @@ td.publicacao{
 #icone{
     width:80px;
     height:80px;
+}
+#usuario{
+    vertical-align: top;
+ background-color: $terciariaE;
+    margin-left: 5%;
+    @include relativo(90%, 100%);
+}
+#titulinho{
+    text-align: center;
+}
+#reset{
+    margin-bottom: 40px;
+}
+#avatarperfil{
+    width:40%;
+    
+    height:550px;
+}
+#nomeperfil{
+    width:60%;
+ 
 }

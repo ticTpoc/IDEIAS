@@ -9,7 +9,7 @@ $key = $_GET['key'] ?? null;
 <html lang="pt-br">
 <head>
 
-<title>Perguntas do Quiz</title>
+<title>Ideias</title>
 <meta charset="UTF-8">
 <meta name="keywords" content="Ideias, idéias, projetos">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,12 +18,7 @@ $key = $_GET['key'] ?? null;
 
 <script src="/IDEIAS/dist/funcoes.dev.js"></script>
 <style>
-    #titulinho{
-        text-align: center;
-    }
-    #reset{
-        margin-bottom: 40px;
-    }
+   
    
   
    
@@ -37,6 +32,7 @@ $key = $_GET['key'] ?? null;
 <table class="publicacoes">
     <tr>
     <td class="navleft">
+        <h2>Assuntos</h2>
 <?php
 
 $q = "select distinct assunto from publicacoes limit 5";
@@ -52,11 +48,12 @@ echo "</table>";
 ?>
     </td>
     <td class="content">
+        <h1> Ideias favoritas </h1>
     <?php 
 
     //select count(l.publicacao) as contagem, p.texto, u.email from likes as l join publicacoes as p on p.id=l.publicacao join usuarios 
     //as u on u.email=l.usuario group by l.publicacao order by contagem desc;
-      $q = "select count(l.publicacao) as contagem,p.id, p.likes,p.usuario,p.titulo,p.texto,p.assunto,p.dia,u.avatar,u.email 
+      $q = "select count(l.publicacao) as contagem,p.id, p.likes,p.usuario,p.titulo,p.texto,p.assunto,p.dia,u.avatar,u.email,u.nome,u.sobrenome
       from likes as l join publicacoes as p on p.id=l.publicacao join usuarios as u on l.usuario=u.email";
     if(!empty($key)){
         $q .= " where p.assunto like '%$key%'";
@@ -68,7 +65,9 @@ echo "</table>";
     while ($reg=$busca->fetch_object()){
         echo "<div class='metade'>";
         echo "<table class='publicacao'>
-        <tr><td class='publicacao' id='titulinho' colspan='3'><img id='perfil' width='50px' height='50px' src='/IDEIAS/img/perfil/$reg->avatar'> $reg->titulo
+        <tr><td class='publicacao' id='titulinho' colspan='3'>
+        <a href='/IDEIAS/perfil.php?user=$reg->email'><img id='avatar' alt='$reg->nome $reg->sobrenome' width='50px' height='50px' src='/IDEIAS/img/perfil/$reg->avatar'></a> 
+        $reg->titulo
         <tr><td class='publicacao' colspan='3'>$reg->texto
         <tr><td class='publicacao'>$reg->assunto<td class='publicacao'>$reg->dia<td class='publicacao'>";
 
@@ -115,6 +114,8 @@ if(logado()){echo "<a href='/IDEIAS/forms/publicar_forms.php'><img  src='/IDEIAS
     function like(pub){
         var publicacao= new FormData();
     publicacao.append('publicacao',pub);
+
+   let gostei = document.getElementById('like'); 
    $.ajax({
            url:'/IDEIAS/scripts/like.php',
            method: 'post',
@@ -125,6 +126,8 @@ if(logado()){echo "<a href='/IDEIAS/forms/publicar_forms.php'><img  src='/IDEIAS
 
            }
    });
+
+   gostei.remove();
   }
     </script>
 

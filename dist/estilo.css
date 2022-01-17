@@ -107,14 +107,18 @@ label {
   font-size: 30px;
 }
 
+#labelcomentario {
+  top: 0px;
+}
+
 input[type=text], input[type=password], input[type=email] {
+  text-align: center;
   background-color: #BBC7A4;
   color: #21282e;
   padding: 0px 10px 0px 10px;
   border: none;
   font-size: 20px;
   height: 40px;
-  border-radius: 10%;
 }
 
 input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
@@ -135,8 +139,15 @@ input[type=checkbox] {
   height: 20px;
 }
 
-input[type=file] {
-  background-color: blue;
+textarea {
+  background-color: #BBC7A4;
+  border: none;
+}
+
+textarea:focus {
+  outline: none;
+  background-color: #F2F5EA;
+  border: 3px solid #555;
 }
 
 table {
@@ -157,11 +168,13 @@ table.publicacoes {
 td.content {
   width: 100%;
   height: 100%;
+  text-align: center;
 }
 
 td.navleft {
   width: 10%;
   height: 100%;
+  text-align: center;
   padding-top: 50px;
   vertical-align: top;
   border-right: 3px solid black;
@@ -217,4 +230,32 @@ td.publicacao {
 #icone {
   width: 80px;
   height: 80px;
+}
+
+#usuario {
+  vertical-align: top;
+  background-color: #c0c2ba;
+  margin-left: 5%;
+  position: relative;
+  width: 90%;
+  text-align: center;
+  height: 100%;
+  float: left;
+}
+
+#titulinho {
+  text-align: center;
+}
+
+#reset {
+  margin-bottom: 40px;
+}
+
+#avatarperfil {
+  width: 40%;
+  height: 550px;
+}
+
+#nomeperfil {
+  width: 60%;
 }
