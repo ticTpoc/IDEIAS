@@ -106,6 +106,36 @@ p{
     text-align: center;
     margin:auto;
 }
+label{
+    font-size:30px;
+}
+input[type=text],input[type=password],input[type=email]{
+    background-color: $extra;
+    color:$primariaE;
+    padding: 0px 10px 0px 10px;
+    border:none;
+    font-size:20px;
+    height:40px;
+    border-radius: 10%;
+}
+input[type=text]:focus,input[type=password]:focus,input[type=email]:focus{
+    background-color: $terciaria;
+    border: 3px solid #555;
+    font-size:20px;
+    height:40px;
+    outline: none;
+}
+input[type=email]{
+    width:400px;
+    text-align: center;
+}
+input[type=checkbox]{
+    width:20px;
+    height:20px;
+}
+input[type=file]{
+    background-color: blue;
+}
 
 //tabelas
 table{

@@ -57,8 +57,7 @@ echo "</table>";
     //select count(l.publicacao) as contagem, p.texto, u.email from likes as l join publicacoes as p on p.id=l.publicacao join usuarios 
     //as u on u.email=l.usuario group by l.publicacao order by contagem desc;
       $q = "select count(l.publicacao) as contagem,p.id, p.likes,p.usuario,p.titulo,p.texto,p.assunto,p.dia,u.avatar,u.email 
-      from likes as l join publicacoes as p on p.id=l.publicacao join usuarios as u on l.usuario=u.email
-     ";
+      from likes as l join publicacoes as p on p.id=l.publicacao join usuarios as u on l.usuario=u.email";
     if(!empty($key)){
         $q .= " where p.assunto like '%$key%'";
     }else{
@@ -82,22 +81,20 @@ echo "</table>";
 
         if(logado()){
             if ($busca2->num_rows==1){
-                
-        
                 echo "<a id='likeado' href='/IDEIAS/index.php'><span id='likeado' class='material-icons'>thumb_up</span></a>
                 <span id='likes'>
                 $reg3->contagem
                 </span>";
-
             }else{
-              
                 echo "<a  href='/IDEIAS/index.php'><span id='like' class='material-icons' onclick=\"like('$reg->id')\" >thumb_up</span></a>
                 <span id='likes'>
                 $reg3->contagem
                 </span>";
             }
         }else{
-
+               echo "<span id='likes'>
+               $reg3->contagem
+               </span>";
         }
         echo "</table>";
         echo "</div>";

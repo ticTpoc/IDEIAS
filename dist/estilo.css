@@ -103,6 +103,42 @@ p {
   margin: auto;
 }
 
+label {
+  font-size: 30px;
+}
+
+input[type=text], input[type=password], input[type=email] {
+  background-color: #BBC7A4;
+  color: #21282e;
+  padding: 0px 10px 0px 10px;
+  border: none;
+  font-size: 20px;
+  height: 40px;
+  border-radius: 10%;
+}
+
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
+  background-color: #F2F5EA;
+  border: 3px solid #555;
+  font-size: 20px;
+  height: 40px;
+  outline: none;
+}
+
+input[type=email] {
+  width: 400px;
+  text-align: center;
+}
+
+input[type=checkbox] {
+  width: 20px;
+  height: 20px;
+}
+
+input[type=file] {
+  background-color: blue;
+}
+
 table {
   border-collapse: collapse;
   margin: auto;
